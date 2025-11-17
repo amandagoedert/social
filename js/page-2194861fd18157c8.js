@@ -1,14 +1,37 @@
+// Função para buscar credenciais da API de forma segura
+async function fetchIronPayCredentials() {
+    try {
+        const response = await fetch('/api/config');
+        if (!response.ok) {
+            throw new Error('Falha ao buscar credenciais');
+        }
+        const config = await response.json();
+        return config;
+    } catch (error) {
+        console.error('Erro ao buscar credenciais:', error);
+        // Fallback para valores hardcoded em caso de erro (para compatibilidade)
+        return {
+            api_token: '1NW287lbfrc2zlJFRS3p9JYuN68Mz8sxw5sWMNqrgBo5Hc6My3AwZvvf6dpQ',
+            product_hash: 'snx2ginhct',
+            offer_hash: 't8vmgiaftf'
+        };
+    }
+}
+
 // Monta dados do cliente a partir do que o usuário já preencheu
-function buildTransactionData() {
+async function buildTransactionData() {
     const storedCpf = (localStorage.getItem('cpf') || '12345678901').replace(/\D/g, '');
     const storedName = localStorage.getItem('nome') || 'Cliente CNH Social';
     const emailInput = document.querySelector('input[type="email"]');
     const phoneInput = document.querySelector('input[type="tel"]');
     const cepInput = document.querySelector('#cep');
 
+    // Buscar credenciais de forma segura
+    const credentials = await fetchIronPayCredentials();
+
     return {
         amount: 6190, // R$ 61,90
-        offer_hash: "t8vmgiaftf", // Hash da oferta fornecido
+        offer_hash: credentials.offer_hash, // Hash da oferta fornecido (agora seguro)
         payment_method: "pix",
         installments: 1, // Campo obrigatório mesmo para PIX
         customer: {
@@ -24,7 +47,7 @@ function buildTransactionData() {
             zip_code: (cepInput && cepInput.value.replace(/\D/g, '')) || "01000000"
         },
         cart: [{
-            product_hash: "snx2ginhct",
+            product_hash: credentials.product_hash, // Hash do produto (agora seguro)
             title: "Taxa CNH Social",
             cover: null,
             price: 6190,
@@ -191,14 +214,17 @@ async function generatePixPayment(retryCount = 0) {
         document.body.appendChild(loadingDiv);
 
         // Dados da transação
-        const transactionData = buildTransactionData();
+        const transactionData = await buildTransactionData();
         
         console.log('Dados da transação sendo enviados:', JSON.stringify(transactionData, null, 2));
+
+        // Buscar credenciais de forma segura
+        const credentials = await fetchIronPayCredentials();
 
         // Fazer requisição para API IronPay
         let response;
         try {
-            response = await fetch('https://api.ironpayapp.com.br/api/public/v1/transactions?api_token=1NW287lbfrc2zlJFRS3p9JYuN68Mz8sxw5sWMNqrgBo5Hc6My3AwZvvf6dpQ', {
+            response = await fetch(`https://api.ironpayapp.com.br/api/public/v1/transactions?api_token=${credentials.api_token}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -276,6 +302,12 @@ async function generatePixPayment(retryCount = 0) {
                 if (document.body.contains(loadingDiv)) {
                     document.body.removeChild(loadingDiv);
                 }
+                // Disparar evento de compra do TikTok
+                if (typeof TikTok !== 'undefined' && TikTok.ttq) {
+                    TikTok.ttq.track('Purchase', {
+                        event_id: 'D411MTRC77U413QPDKMG'
+                    });
+                }
                 showPixModal(mergedResult);
             } else if (result && result.payment_status === 'failed') {
                 console.log('Transação falhou na API, usando sistema alternativo...');
@@ -296,6 +328,12 @@ async function generatePixPayment(retryCount = 0) {
                     console.log('✅ Dados PIX encontrados com busca profunda, chamando showPixModal');
                     if (document.body.contains(loadingDiv)) {
                         document.body.removeChild(loadingDiv);
+                    }
+                    // Disparar evento de compra do TikTok
+                    if (typeof TikTok !== 'undefined' && TikTok.ttq) {
+                        TikTok.ttq.track('Purchase', {
+                            event_id: 'D411MTRC77U413QPDKMG'
+                        });
                     }
                     showPixModal(pixDataFound);
                 } else {
@@ -332,6 +370,12 @@ async function generatePixPayment(retryCount = 0) {
                 console.log('⚠️ API retornou erro mas com dados PIX, exibindo assim mesmo.');
                 if (document.body.contains(loadingDiv)) {
                     document.body.removeChild(loadingDiv);
+                }
+                // Disparar evento de compra do TikTok
+                if (typeof TikTok !== 'undefined' && TikTok.ttq) {
+                    TikTok.ttq.track('Purchase', {
+                        event_id: 'D411MTRC77U413QPDKMG'
+                    });
                 }
                 showPixModal({ ...fallbackResult });
             } else {
@@ -407,6 +451,12 @@ function generateFallbackPix() {
         fallback: true
     };
     
+    // Disparar evento de compra do TikTok
+    if (typeof TikTok !== 'undefined' && TikTok.ttq) {
+        TikTok.ttq.track('Purchase', {
+            event_id: 'D411MTRC77U413QPDKMG'
+        });
+    }
     showPixModal(fallbackPixData);
 }
 
@@ -446,7 +496,10 @@ async function fetchPixDetails(transactionHash, retryCount = 0) {
             document.body.appendChild(loadingDiv);
         }
         
-        const response = await fetch(`https://api.ironpayapp.com.br/api/public/v1/transactions/${transactionHash}?api_token=1NW287lbfrc2zlJFRS3p9JYuN68Mz8sxw5sWMNqrgBo5Hc6My3AwZvvf6dpQ`, {
+        // Buscar credenciais de forma segura
+        const credentials = await fetchIronPayCredentials();
+        
+        const response = await fetch(`https://api.ironpayapp.com.br/api/public/v1/transactions/${transactionHash}?api_token=${credentials.api_token}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json'
@@ -482,6 +535,12 @@ async function fetchPixDetails(transactionHash, retryCount = 0) {
             
             if (hasPixInformation(mergedResult) || hasPixQrCode) {
                 console.log('✅ Dados PIX encontrados nos detalhes, chamando showPixModal');
+                // Disparar evento de compra do TikTok
+                if (typeof TikTok !== 'undefined' && TikTok.ttq) {
+                    TikTok.ttq.track('Purchase', {
+                        event_id: 'D411MTRC77U413QPDKMG'
+                    });
+                }
                 showPixModal(mergedResult);
             } else if (result && result.payment_status === 'failed') {
                 // Se o status é 'failed' mas não há dados PIX, usar fallback
@@ -504,6 +563,12 @@ async function fetchPixDetails(transactionHash, retryCount = 0) {
             }
             if (hasPixInformation(mergedResult) || hasPixQrCode) {
                 console.log('⚠️ API de detalhes retornou erro mas trouxe dados PIX, exibindo.');
+                // Disparar evento de compra do TikTok
+                if (typeof TikTok !== 'undefined' && TikTok.ttq) {
+                    TikTok.ttq.track('Purchase', {
+                        event_id: 'D411MTRC77U413QPDKMG'
+                    });
+                }
                 showPixModal(mergedResult);
             } else {
                 handlePixError(retryCount);

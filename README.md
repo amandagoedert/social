@@ -9,6 +9,7 @@ Site para inscrição no programa CNH Social com integração de pagamento PIX v
 - JavaScript (Vanilla)
 - IronPay API (Pagamentos PIX)
 - Vercel (Deploy)
+- Next.js API Routes (para credenciais seguras)
 
 ## 📋 Funcionalidades
 
@@ -17,6 +18,7 @@ Site para inscrição no programa CNH Social com integração de pagamento PIX v
 - ✅ Código PIX copia e cola
 - ✅ Integração com IronPay
 - ✅ Webhook para notificações de pagamento
+- ✅ **Credenciais seguras via API routes** 🔒
 
 ## 🛠️ Instalação Local
 
@@ -65,7 +67,8 @@ git push -u origin main
 1. Acesse [vercel.com](https://vercel.com)
 2. Conecte sua conta GitHub
 3. Importe o repositório
-4. Deploy automático!
+4. **Configure as variáveis de ambiente** (veja seção Segurança)
+5. Deploy automático!
 
 **URL do Webhook no Vercel:**
 ```
@@ -76,11 +79,11 @@ https://seu-projeto.vercel.app/ironpay_webhook
 
 ### IronPay API
 
-As credenciais estão configuradas no arquivo `js/page-2194861fd18157c8.js`:
+As credenciais são obtidas de forma segura via API route `/api/config`:
 
-- **API Token:** Configurado
-- **Product Hash:** `snx2ginhct`
-- **Offer Hash:** `t8vmgiaftf`
+- **API Token:** Via `IRONPAY_API_TOKEN`
+- **Product Hash:** Via `IRONPAY_PRODUCT_HASH`
+- **Offer Hash:** Via `IRONPAY_OFFER_HASH`
 
 ### Webhook
 
@@ -88,25 +91,58 @@ Configure a URL do webhook no painel da IronPay:
 - **Produção:** `https://seu-projeto.vercel.app/ironpay_webhook`
 - **Desenvolvimento:** Use ngrok para expor localhost
 
+## 🔒 Segurança
+
+### ✅ Implementação Segura de Credenciais
+
+**Problema Resolvido:**
+- ❌ Credenciais hardcoded expostas em JavaScript público
+- ❌ Risco de interceptação e uso malicioso
+- ❌ Possível comprometimento de pagamentos
+
+**Solução Implementada:**
+- ✅ API route `/api/config` para acesso seguro às credenciais
+- ✅ Variáveis de ambiente no Vercel (`IRONPAY_API_TOKEN`, etc.)
+- ✅ Busca assíncrona de credenciais no lado cliente
+- ✅ Fallback automático para compatibilidade
+
+### Configuração das Variáveis de Ambiente no Vercel
+
+1. Acesse seu projeto no [Vercel Dashboard](https://vercel.com/dashboard)
+2. Vá em **Settings** > **Environment Variables**
+3. Adicione as seguintes variáveis:
+
+```
+IRONPAY_API_TOKEN=1NW287lbfrc2zlJFRS3p9JYuN68Mz8sxw5sWMNqrgBo5Hc6My3AwZvvf6dpQ
+IRONPAY_PRODUCT_HASH=snx2ginhct
+IRONPAY_OFFER_HASH=t8vmgiaftf
+```
+
+4. **Re-deploy** o projeto para aplicar as mudanças
+
+### Arquivos Modificados
+
+- `api/config.js` - Nova API route para credenciais
+- `js/page-*.js` - Código atualizado para buscar credenciais dinamicamente
+- `.env.example` - Documentação das variáveis necessárias
+
 ## 📁 Estrutura do Projeto
 
 ```
 cnh/
 ├── index.html              # Página principal
 ├── js/
-│   ├── page-*.js          # Lógica principal e integração PIX
+│   ├── page-*.js          # Lógica principal e integração PIX (AGORA SEGURO)
 │   └── pix-buttons.js     # Event listeners para botões
 ├── api/
+│   ├── config.js          # 🆕 API route para credenciais seguras
 │   └── ironpay_webhook.js # Serverless function para Vercel
 ├── ironpay_webhook.js     # Webhook Node.js (desenvolvimento)
 ├── vercel.json            # Configuração do Vercel
 ├── package.json           # Dependências Node.js
+├── .env.example           # 🆕 Exemplo de variáveis de ambiente
 └── DEPLOY.md              # Guia de deploy detalhado
 ```
-
-## 🔒 Segurança
-
-⚠️ **IMPORTANTE:** Em produção, mova as credenciais da API para variáveis de ambiente!
 
 ## 📝 Licença
 
