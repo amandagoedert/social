@@ -427,30 +427,8 @@
 
     <script>
         function checkout(event) {
-            event.preventDefault(); 
-            // Pega os parâmetros UTM da URL atual
-            const urlParams = new URLSearchParams(window.location.search);
-            const utmParams = {};
-            
-            // Mantém apenas os parâmetros UTM e outros relevantes
-            for (const [key, value] of urlParams.entries()) {
-                if (key.startsWith('utm_') || ['src', 'sck', 'xcod', 'fbclid', 'gclid', 'ttclid'].includes(key)) {
-                    utmParams[key] = value;
-                }
-            }
-            
-            // Adiciona os novos parâmetros
-            utmParams.from_upsell = '5';
-            utmParams.valor = '3980';
-            
-            // Mantém o parâmetro transaction se existir
-            if (urlParams.has('transaction')) {
-                utmParams.transaction = urlParams.get('transaction');
-            }
-            
-            // Constrói a nova URL
-            const newParams = new URLSearchParams(utmParams);
-            window.location.href = "/cnh/checkoutup5/index.html?" + newParams.toString();
+            event.preventDefault();
+            window.location.href = "https://checkout.socialcnh.com/VCCL1O8SCIIM";
         }
     </script>
 
